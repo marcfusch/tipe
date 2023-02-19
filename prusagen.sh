@@ -1,30 +1,21 @@
-#! /bin/zsh
+#!/bin/zsh
 
-# This is where my copy is, YMMV.
+#install path
 slicerpath=/Applications/Original\ Prusa\ Drivers/PrusaSlicer.app/Contents/MacOS/PrusaSlicer
+stl=./file.stl
+declare -a infills=("monotonic" "grid" "hiulbertcurve" "honeycomb" "octagramspiral" "stars" "triangle" "gyroid")
 
-# "top*.stl" have to be rotate 180° on the X (or Y) axis
-for file in ./top*.stl; do
-    echo $file
+for infill in ${infills[@]}; do
+    echo "Printing with infill pattern:" $infill
+
     $slicerpath \
         --load ./config.ini \
         --printer-technology FFF \
-        --rotate-x 180 \
-        --center 125,105 \
+        --fill_pattern $infill \
+        --top_fill_pattern monotonic \
+        --bottom_fill_pattern monotonic \
         --slice \
         --export-gcode \
-        $file
-done
-
-
-# "bottom*.stl" parts can be sliced without transformations
-for file in ./bottom*.stl; do
-    echo $file
-    $slicerpath \
-        --load ./config.ini \
-        --printer-technology FFF \
-        --center 125,105 \
-        --slice \
-        --export-gcode \
-        $file
+        $stl
+    sleep 5
 done
