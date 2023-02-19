@@ -1,6 +1,9 @@
 #ownshit
 output/*.gcode
-
+stl/*.stl
+stl/*.gcode
+1
+output.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
