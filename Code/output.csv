@@ -1,0 +1,9 @@
+filename;time;infill_density;infill_pattern
+tensiletestastm1;57m;20%;rectilinear
+tensiletestastm1;57m;20%;alignedrectilinear
+tensiletestastm1;56m;20%;concentric
+tensiletestastm1;57m;20%;grid
+tensiletestastm1;1h7m;20%;honeycomb
+tensiletestastm1;58m;20%;stars
+tensiletestastm1;59m;20%;gyroid
+tensiletestastm1;59m;20%;triangles

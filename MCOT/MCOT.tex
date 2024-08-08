@@ -1,0 +1,120 @@
+%Document presentation
+\documentclass[12pt, french]{article}
+\usepackage[margin=0.7in]{geometry}
+
+%Custom language
+\usepackage[french]{babel} 
+\selectlanguage{french}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%Maths packages
+\usepackage{esvect}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{gensymb}
+\usepackage{tikz,tkz-tab}
+\usepackage{listings}
+
+%\usepackage{eecs}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=5
+}
+
+\lstset{style=mystyle}
+%CUSTOM COMMANDS
+\newcommand{\motclefs}[2]{
+\section*{Mots-clefs}
+\begin{description}
+\item[Mots-clefs] -- #1 
+\item[Keywords]   -- #2
+\end{description}
+}
+
+\newcommand{\positionnementThematique}[1]{
+\section*{Positionnement thématique}
+{\it #1}}
+
+\newcommand{\Titre}[1]{
+\noindent
+\textcolor{black}{\Huge\textbf{\textsf{#1}}}
+\vspace*{0.75cm}
+}
+%Custom paragraphs
+\usepackage{ulem}
+\usepackage{titlesec}
+\titleformat{\paragraph}[hang]{\bfseries}{}{0pt}{\uline}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%Presentation
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\rhead{Marc Fuschino}
+\lhead{MCOT TIPE}
+%\rfoot{Page \thepage}
+
+%DOCUMENT STARTS%
+\begin{document}
+
+\Titre{Étude mécanique des effets du remplissage utilisé pour la fabrication de pièces par dépôt de fil fondu.}
+
+\positionnementThematique{Sciences de l'ingénieur (Génie Mécanique), Physique (Mécanique)}
+
+\motclefs{Impression 3D -- Resistance des matériaux -- Motifs -- Fabrication -- Essai destructif}{3D Printing -- Material strength -- Patterns -- Manufacturing -- Destructive testing}
+
+\section*{Bibliographie commentée}
+En raison des performances extrêmes des athlètes et des machines qu'ils utilisent. Il est nécéssaire que la résistance du matériel utilisé soit la plus grande possible, tout en restreignant la personne le moins possible. Depuis le développement de la fabrication par impression 3D au cours de la dernière décennie, on aperçois de plus en plus de pièces et d'outils destinées a l'usage compétitif de haut niveau. \cite{sports}
+\noindent \\
+ La fabrication par dépôt de matière est très répandue dans ce domaine car la rapidité de réalisation permet un prototypage rapide, peu coûteux \cite{miami} et permet de mieux adapter les pièces à l'athlète.\cite{sports}\\
+ Il est clair que les paramètres d'impressions ont une influence sur le résultat final, mais comment clairement les quantifiers?\\
+ 
+Une manière de tester cette resistance est via un essai de traction (sur un banc de traction) \cite{tensiletestd638}. Cet essai doit donc suivre des normes internationales, afin que tout le monde soit d'accord sur les résultats. Il existe de telles normes d'essai de traction de plastiques comme ISO527 ou ASTM D638 \cite{ASTMD638}. Une fois que nous avons nous graphes de déformations, représentant la contrainte appliquée à l'éprouvette en fonction de son allongement relatif \cite{infill}.\\
+Enfin, en appliquant la loi de Hooke, sur un modèle, simplifié de l'éprouvette, nous pouvons en déduire son module de Young (noté E) \cite{rdm} ce qui nous permettra de quantifier la résistance des éprouvettes imprimées et ainsi pouvoir choisir le meilleur réglage à l'avenir sans avoir à garder cette question floue dans notre tête.
+
+
+\section*{Problématique retenue}
+Il s’agit d’étudier le comportement des pièces imprimées en 3D lorsqu’elles sont soumises à un effort de traction afin de caractériser les influences du motif de remplissage ainsi que de sa densité.
+\section*{Objectifs du TIPE}
+\begin{enumerate}
+	\item	Modélisation: Modéliser une éprouvette en 3D respectant des standards internationaux.
+    \item	Réalisation: Impression et optimisation du processus d’impression afin d’obtenir le plus d’éprouvettes possibles sans en affecter la qualité.
+    \item	Test: Essai destructif des éprouvettes sur le banc de traction et quantification de la résistance du motif étudié grâce à la loi de Hooke.
+\end{enumerate}
+
+
+
+
+% Pour faire apparaître la bibliographie avec des chiffres, 
+% dans l'ordre d'apparition dans le texte
+\bibliographystyle{unsrt-fr}     % Style de la bibliographie (numérotée dans l'ordre d'apparition du texte)
+\bibliography{biblio.bib} % Nom du fichier .bib à utiliser
+\cite{sports}
+\cite{miami}
+\cite{infill}
+\cite{tensiletestd638}
+\cite{ASTMD638}
+\cite{rdm}
+\end{document}
